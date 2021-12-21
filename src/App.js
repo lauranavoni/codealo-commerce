@@ -1,11 +1,11 @@
-import Cards from "./Components/Cards";
+import ProductAddToCart from "./Components/ProductAddtoCart";
 
 function App() {
   return (
     <div>
-      <h1>  Malana Deco </h1>
+      <h1>  Aura deco</h1>
       <br></br>
-      <Cards />
+  <ProductAddToCart></ProductAddToCart>
     </div>
   );
 }
