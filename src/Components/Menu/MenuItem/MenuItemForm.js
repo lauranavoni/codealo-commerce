@@ -1,6 +1,6 @@
 import React,{useRef,useState} from 'react';
 import styles from './MenuItemForm.module.css';
-import Input from '../../UI/Input/Input';
+import Input from '../../UI/input';
 
 const MenuItemForm = props =>{
     const [amountIsValid,setAmountIsValid] = useState(true);

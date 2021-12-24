@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './MenuList.module.css';
-import Card from './../../UI/Card/Card';
+import Card from './../../UI/Card';
 import MenuItem from '../MenuItem/MenuItem';
-import {DUMMY_MEALS} from '../../../dummyMeals.js'
+import {DUMMY_MEALS} from '../../../dummyMeals';
 const MenuList = props => {
     const menuItems = DUMMY_MEALS.map(element=>
         <MenuItem

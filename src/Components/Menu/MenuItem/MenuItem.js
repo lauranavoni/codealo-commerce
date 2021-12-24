@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
-import styles from './MenuItem.module.css';
-import MenuItemForm from './MenuItemForm'
-import CartContext from '../../../store/cart-context';
+import styles from '../MenuItem/MenuItem.module.css';
+import MenuItemForm from '../MenuItem/MenuItemForm'
+import CartContext from '../../../store/CartContext';
 
 const MenuItem = props =>{
     const cartCtxt = useContext(CartContext);

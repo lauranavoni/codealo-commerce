@@ -1,6 +1,6 @@
 import React from 'react';
-import MealsSummary from './MealsSummary/MealsSummary';
-import MenuList from './MenuList/MenuList';
+import MealsSummary from '../Menu/MealsSummary/MealsSummary';
+import MenuList from '../Menu/MenuList/MenuList';
 
 const Menu = props =>{
 

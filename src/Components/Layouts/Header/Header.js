@@ -1,18 +1,18 @@
 import React from 'react';
-import styles from './Header.module.css'
-import mealsImg from '../../../assets/meals.jpeg'
-import HeaderCartButton from './HeaderCartButton';
+import styles from '../Header/Header.module.css';
+import BannerImg from '../../../assets/BannerImg.jpg';
+import HeaderCartButton from '../Header/HeaderCartButton';
 const Header = props =>{
     return(
         <React.Fragment>
             <header 
                 className={styles.header}
             >
-                <h1>React Meals</h1>
+                <h1>Ecommerce Codealo</h1>
                 <HeaderCartButton onClick={props.onShowCart} />
             </header>
             <div className={styles['main-image']}>
-                <img src={mealsImg} alt='a delicious plate of food'/>
+                <img src={BannerImg} alt='a delicious plate of food'/>
             </div>
         </React.Fragment>
         

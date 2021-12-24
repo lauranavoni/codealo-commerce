@@ -1,29 +1,32 @@
-import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, {useState} from 'react';
+import styles from './App.module.css';
 
+import Menu from './Components/Menu/Menu';
 
-import Navbar from "./Components/NavBar";
-import Footer from "./Components/Footer";
-import Home from "./Screen/Home";
-import SingleProduct from "./Screen/Single_Product";
-import CartScreen from "./Screen/Cart_Screen";
+import Header from './Components/Layouts/Header/Header';
+import Cart from './Components/Cart/Cart';
+import CartProvider from './store/CartProvider';
 
 function App() {
+  const cart = [{
+    id:'c1',
+    name:'sushi',
+    amount:2,
+    price:12.99
+}]
+  const [cartVisible,setCartVisible] = useState(false);
+  const showCartHandler = ()=>{
+    setCartVisible(true);
+  } 
+  const hideCartHandler = ()=>{
+    setCartVisible(false);
+  }
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/products/:id' children={<SingleProduct />}></Route>
-        <Route exact path='/cart'>
-          <CartScreen />
-        </Route>
-       
-      </Routes>
-      <Footer />
-    </Router>
+    <CartProvider className={styles.app}>
+      {cartVisible && <Cart onHideCart={hideCartHandler} cart={cart}/>}
+      <Header onShowCart={showCartHandler} onHideCart={hideCartHandler}/>
+      <Menu></Menu>
+    </CartProvider>
   );
 }
 
