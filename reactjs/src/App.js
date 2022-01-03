@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styles from './App.module.css';
+import Header from './Component/Header/Header';
+import CartProvider from './Component/store/CartProvider';
+import { useEffect, useState } from 'react';
+import { fetchProducts } from "../src/Api";
 
-function App() {
+export default function App() {
+const [products, setProducts] = useState (null);
+
+const getData = async () => {
+  setProducts ((await fetchProducts()) || []);
+};
+
+
+useEffect(() =>{
+ getData();
+}, [])
+
+const cart = [{
+  id:'c1',
+  title:'Front End',
+  description:'Front End',
+  price:0,
+  image:'Front End'
+ 
+}]
+
+const [cartVisible,setCartVisible] = useState(false);
+  const showCartHandler = ()=>{
+    setCartVisible(true);
+  } 
+  const hideCartHandler = ()=>{
+    setCartVisible(false);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita <code>src/App.js</code> y guarda para ver cambios.
-        </p>
-        <a
-          className="App-link"
-          href="https://codealo.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprende con Codealo
-        </a>
-      </header>
-    </div>
+    <><CartProvider className={styles.app}>
+      {cartVisible && <Cart onHideCart={hideCartHandler} cart={cart} />}
+      <Header onShowCart={showCartHandler} onHideCart={hideCartHandler} />
+  
+    </CartProvider><div>
+
+        <div className='App'>
+          <h1> Categories</h1>
+          {products.map((cat, idx) => {
+            return <div key={cat.id}>{cat.name}</div>;
+          })}
+        </div>
+      </div></>
   );
 }
-
-export default App;
