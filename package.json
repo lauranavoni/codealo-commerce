@@ -5,5 +5,8 @@
   "repository": "https://github.com/Codealo-Dev/web-app-template.git",
   "author": "Codealo <johnnie@codealo.dev>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@material-ui/icons": "^4.11.2"
+  }
 }
