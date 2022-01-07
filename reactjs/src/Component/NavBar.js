@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Badge from '@mui/material/Badge';
 import { ShoppingCartOutlined } from '@material-ui/icons';
 
+
 const Container = styled.div`
   height: 60px;
   
@@ -16,6 +17,8 @@ const Wrapper = styled.div`
 `;
 const Left = styled.div`
  flex:1;
+ display:flex;
+align-items:center;
 `;
 const Center = styled.div`
 flex:1;
@@ -29,10 +32,7 @@ align-items: center;
 justify-content: flex-end;
 `;
 
-const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
-`;
+
 
 const SearchContainer = styled.div`
   border: 0.5px solid lightgray;
@@ -51,6 +51,9 @@ const Logo = styled.h1`
 
 `;
 
+let imgUrl=
+"logo192.png";
+
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
@@ -63,7 +66,7 @@ const NavBar = () => {
     <Container>
      <Wrapper> 
        <Left>
-       <Language>EN</Language>
+       <img src={imgUrl} alt="codealo-logo" className="navbar-image" />
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
