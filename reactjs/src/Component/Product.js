@@ -1,88 +1,76 @@
-import {
-    FavoriteBorderOutlined,
-    SearchOutlined,
-    ShoppingCartOutlined,
-  } from '@material-ui/icons';
-  import styled from "styled-components";
-  
-  const Info = styled.div`
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  `;
-  
-  const Container = styled.div`
-    flex: 1;
-    margin: 5px;
-    min-width: 280px;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5fbfd;
-    position: relative;
-    &:hover ${Info}{
-      opacity: 1;
-    }
-  `;
-  
-  const Circle = styled.div`
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-  `;
-  
-  const Image = styled.img`
-    height: 75%;
-    z-index: 2;
-  `;
-  
-  const Icon = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    transition: all 0.5s ease;
-    &:hover {
-      background-color: #e9f5f5;
-      transform: scale(1.1);
-    }
-  `;
-  
-  const Product = ({ item }) => {
-    return (
-      <Container>
-        <Circle />
-        <Image src={item.img} />
-        <Info>
-          <Icon>
-            <ShoppingCartOutlined />
-          </Icon>
-          <Icon>
-            <SearchOutlined />
-          </Icon>
-          <Icon>
-            <FavoriteBorderOutlined />
-          </Icon>
-        </Info>
-      </Container>
-    );
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addCart } from "./Action";
+import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
+import { fetchImageURL, fetchProduct } from "../Api";
+import Loader from "./Loader";
+
+const Product = () => {
+  const { slug } = useParams();
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
+  // const [image, setImage] = useState()
+
+  const dispatch = useDispatch();
+  const addProduct = (product) => {
+    dispatch(addCart(product));
   };
-  
-  export default Product;
+
+  const getProduct = async () => {
+    setLoading(true);
+    setProduct(await fetchProduct(slug));
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getProduct();
+  },[]);
+
+  return (
+    <React.Fragment>
+      <div className="container py-5">
+        <div className="row py-4">
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              <div className="col-md-6 center" key={product.id}>
+                {
+                  <img
+                    src={fetchImageURL(product.image?.url)}
+                    alt={product.title}
+                    height={400}
+                    width={400}
+                  />
+                }
+              </div>
+              <div className="col-md-6 my-auto center">
+                <h4 className="text-uppercase text-black-50">
+                  {product.category}
+                </h4>
+                <h1 className="display-5">{product.title}</h1>
+                <h3 className="dispaly-6 fw-bold my-4">$ {product.price}</h3>
+                <p className="lead">{product.description}</p>
+                <button
+                  className="btn btn-outline-dark px-4 py-2"
+                  onClick={() => 
+                  addProduct(product)}
+                >
+                  {" "}
+                  Add 
+                </button>
+                <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
+                  Go to 🛒
+                </NavLink>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
+
+export default Product;

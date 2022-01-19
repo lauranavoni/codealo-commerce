@@ -1,34 +1,17 @@
-const baseURL = "https://codealo-commerce-cms.onrender.com";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export const fetchCategories = async () => {
-  try {
-    const response = await fetch(`${baseURL}/categories`);
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
+const App = (_) => {
+  const [product, setProduct] = useState([]);
 
-export const fetchProducts = async () => {
-  try {
-    const response = await fetch(`${baseURL}/products`);
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-export const fetchProduct = async (slug) => {
-  try {
-    const response = await fetch(`${baseURL}/products/${slug}`);
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    return null;
-  }
-};
+  useEffect(() => {
+    axios
+      .get(`https://codealo-commerce-cms.onrender.com`)
+      .then((res) => {
+        setProduct(res.data.name);
+      })
+  }, []);
 
-export const fetchImageURL = (url) => {
-  return `${baseURL}${url}`;
+  return <div>{product}</div>;
 };
+export default App;
