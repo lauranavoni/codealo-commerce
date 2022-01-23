@@ -1,4 +1,3 @@
-
 // para agregar al carrito 
 export const addCart = (product) => {
     return{
