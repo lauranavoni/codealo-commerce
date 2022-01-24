@@ -1,12 +1,12 @@
 import React from 'react';
-import MealsSummary from '../Menu/MealsSummary/MealsSummary';
-import MenuList from '../Menu/MenuList/MenuList';
+import Summary from './CardSummary/Summary';
+import MenuList from './MenuList/MenuList';
 
 const Menu = props =>{
 
     return(
         <React.Fragment>
-            <MealsSummary/>
+            <Summary/>
             <MenuList/>
         </React.Fragment>
     )

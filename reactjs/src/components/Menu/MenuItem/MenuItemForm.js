@@ -1,6 +1,6 @@
 import React,{useRef,useState} from 'react';
 import styles from './MenuItemForm.module.css';
-import Input from '../../UI/input';
+import Input from '../../UI/Input'; //ok
 
 const MenuItemForm = props =>{
     const [amountIsValid,setAmountIsValid] = useState(true);
@@ -34,7 +34,7 @@ const MenuItemForm = props =>{
             }
         }/>
         <button >Add</button>
-        {!amountIsValid && <p>Please enter a valid amount (1-5).</p>}
+        {!amountIsValid && <p>Please enter a valid amount (1-10).</p>}
     </form>        
     )
 }

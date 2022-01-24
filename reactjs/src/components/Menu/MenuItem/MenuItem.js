@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
-import styles from '../MenuItem/MenuItem.module.css';
-import MenuItemForm from '../MenuItem/MenuItemForm'
-import CartContext from '../../../store/CartContext';
+import styles from '../MenuItem/MenuItem.module.css'; //ok
+import MenuItemForm from './MenuItemForm'; // ok
+import CartContext from '../../../store/CartContext'; //ok
 
 const MenuItem = props =>{
     const cartCtxt = useContext(CartContext);
@@ -9,14 +9,14 @@ const MenuItem = props =>{
     const addToCartHandler = (enteredAmount) =>{
         cartCtxt.addItem({
             id:props.id,
-            name: props.title,
+            title: props.title,
             amount:enteredAmount,
             price:props.price
         })
     }
     return(
-        <div className={styles.meal}>
-            <div className={styles.mealInfo}>
+        <div className={styles.list}>
+            <div className={styles.listInfo}>
                 <h2>{props.title}</h2>
                 <p className={styles.description}>{props.productDescription}</p>
                 <p className={styles.price}>{`$${props.price.toFixed(2)}`}</p>

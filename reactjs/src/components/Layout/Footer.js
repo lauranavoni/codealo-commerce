@@ -4,7 +4,17 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  color:#FFFFFF;
+  background-color: #3E24A7;
+  padding: 10px;
+ 
+  font-size: 1.1rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  
 `;
+
+
 
 const Left = styled.div`
   flex: 1;
@@ -13,10 +23,13 @@ const Left = styled.div`
   padding: 20px;
 `;
 
-const Logo = styled.h1``;
+const Logo = styled.h1`
+
+`;
 
 const Desc = styled.p`
   margin: 20px 0px;
+
 `;
 
 const SocialContainer = styled.div`
@@ -26,18 +39,20 @@ const SocialContainer = styled.div`
 const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 90%;
   color: white;
   background-color: #${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
+  margin-right: 40px;
+
 `;
 
 const Center = styled.div`
   flex: 1;
-  padding: 20px;
+  padding: 40px;
+
 `;
 
 const Title = styled.h3`
@@ -52,10 +67,7 @@ const List = styled.ul`
   flex-wrap: wrap;
 `;
 
-const ListItem = styled.li`
-  width: 50%;
-  margin-bottom: 10px;
-`;
+
 
 const Right = styled.div`
   flex: 1;
@@ -76,33 +88,26 @@ const Footer = () => {
       <Left>
         <Logo>Codealo Camp</Logo>
         <Desc>
-          Las tiendas online son de los proyectos más demandados en el mercado
-          laboral. ¿A qué tienda no le gustaría tener presencia online? Con este
-          proyecto vas a poner en práctica tus conocimientos en HTML, CSS y
-          JavaScript para construir una tienda funcional, donde los usuarios
-          puedan ver los productos, seleccionar la cantidad que quieren de cada
-          uno y completar su compra.
+        Las principales empresas eligen a Codealo Business para desarrollar sus habilidades profesionales más demandadas.
         </Desc>
-        <SocialContainer>
-    
-          <SocialIcon color="E4405F">
-            <Instagram />
-          </SocialIcon>
 
-        </SocialContainer>
       </Left>
       <Center>
-        <Title>Useful Links</Title>
+        <Title>Links</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
+        <SocialContainer>
+   
+        <a href="https://instagram.com/codealo"><SocialIcon color="E4405F">
+            <Instagram />
+          </SocialIcon></a>
+       
+       </SocialContainer>
         </List>
       </Center>
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> 622 Dixie Path , South
-          Tobinchester 98336
+          <Room style={{ marginRight: "10px" }} /> 124 Dixie Path,California
         </ContactItem>
         <ContactItem>
           <Phone style={{ marginRight: "10px" }} /> +1 234 56 78

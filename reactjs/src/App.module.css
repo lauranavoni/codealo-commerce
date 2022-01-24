@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: #2F3CED;
 }
 
 .logo {
@@ -97,18 +97,6 @@ img {
   padding: 2px 16px;
 }
 
-footer {
-  font-family: inherit;
-  background-color: #F65435;
-  padding: 10px;
-  color: white;
-  text-align: center;
-  font-size: 1.1rem;
-}
-
-footer a {
-  color: white;
-}
 
 .payment {
   border: 1px solid #f2f2f2;
