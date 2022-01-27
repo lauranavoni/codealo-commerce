@@ -86,7 +86,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>Codealo Camp</Logo>
+        <Logo>Codealo</Logo>
         <Desc>
         Las principales empresas eligen a Codealo Business para desarrollar sus habilidades profesionales más demandadas.
         </Desc>

@@ -1,4 +1,4 @@
-.meal {
+.list {
     display: flex;
     justify-content: space-between;
     margin: 1rem;
@@ -6,7 +6,7 @@
     border-bottom: 1px solid rgb(221, 33, 33);
   }
   
-  .meal h2 {
+  .list h2 {
     margin: 0 0 0.25rem 0;
   }
   
