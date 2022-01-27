@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import './styles.css';
 
 
+
 const Products = () => {
+
 
     const [products, setProducts]= useState ([]);
 
@@ -12,11 +14,12 @@ const Products = () => {
             .get('https://codealo-commerce-cms.onrender.com/products')
             .then (res => setProducts (res.data))
             .catch (error => console.log (error));
-
+    
     }, []);
 
+
     return (
-        <div style= {{display: 'flex',flexDirection :'row' }} >
+        <div style= {{display: 'flex',flexDirection :'row',  }} >
             {products.length > 0 &&
             products.map  (product=>(
         <div className="product_title">
@@ -31,18 +34,22 @@ const Products = () => {
                     cursor: 'pointer',
                     color: '#0D0055',
                     background: '#3E24A7',
-                
+                    
                 
                 },
             }}
          />
-         <div className="product_description">
+         <div className="product_description"  >
         <h4>{product.description}</h4></div>
-        <p>{product.price}$</p>
+        <div className="container">
+        <p>${product.price}</p></div>
         </div>
-        ))}  
+        ))} 
+         
         </div>
+
     );
 }
+
 
 export default Products;
