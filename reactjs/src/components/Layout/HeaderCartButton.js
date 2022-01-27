@@ -1,7 +1,7 @@
 import React,{useContext,useState,useEffect} from 'react';
 import CartContext from '../../store/CartContext'; 
 import styles from '../Layout/Header.module.css';
-import CartIcon from '../../components/CartIcon/CartIcon';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const HeaderCartButton = props =>{
 
@@ -28,7 +28,7 @@ const HeaderCartButton = props =>{
         
         <button className={buttonClasses}onClick={props.onClick}>
             <span className={styles.icon}>
-                <CartIcon/>
+                <ShoppingCartIcon/>
             </span>
             <span >
                 Your Cart

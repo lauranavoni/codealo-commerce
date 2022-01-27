@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../Layout/Header.module.css'; //ok
 import BannerImg from '../../assets/BannerImg.jpg';//ok
 import HeaderCartButton from '../Layout/HeaderCartButton';
-import SearchIcon from "@material-ui/icons/Search";
+
 
 
 const Header = props =>{
@@ -12,10 +12,6 @@ const Header = props =>{
                 className={styles.header}
                 
             >
-            <div className='header__center'>
-            <input type="text" />
-                <SearchIcon />
-            </div>
                 <h1>Ecommerce Codealo</h1>
                 <HeaderCartButton onClick={props.onShowCart} />
             </header>

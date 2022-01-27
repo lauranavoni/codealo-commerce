@@ -1,15 +1,17 @@
 //import React, {useState} from 'react';
 //import styles from './App.module.css';
 //import CartProvider from './store/CartProvider';
-//import Header from'./components/Layout/Header';
+import Header from'./components/Layout/Header';
 //import Cart from './components/Cart/Cart';
 import Products from "./Products";
-//import Menu from './components/Menu/Menu';
+import Menu from './components/Menu/Menu';
 //import Footer from'../src/components/Layout/Footer';
 
 export default function App() {
   return (
     <div className="App">
+      <Header/>
+      <Menu/>
    <Products></Products> 
    </div>
   );

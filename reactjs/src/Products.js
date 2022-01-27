@@ -16,16 +16,24 @@ const Products = () => {
     }, []);
 
     return (
-        <div>
+        <div style= {{display: 'flex',flexDirection :'row' }} >
             {products.length > 0 &&
-            products.map (product=>(
+            products.map  (product=>(
         <div className="product_title">
         <h4>{product.title}</h4>
         <img 
-         alt= {product.title}
+         alt= {product.img}
          src={`https://codealo-commerce-cms.onrender.com${product.image.url} `}
             style ={{
-                height:'100px'
+                height:'100px',
+                transition: 'all 0.5s ease',
+                ':hover':{
+                    cursor: 'pointer',
+                    color: '#0D0055',
+                    background: '#3E24A7',
+                
+                
+                },
             }}
          />
          <div className="product_description">

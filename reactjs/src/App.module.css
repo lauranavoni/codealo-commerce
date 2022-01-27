@@ -1,11 +1,12 @@
 .app{
- display: flex;
+ display: flex ;
 }
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@200;300&display=swap');
 
 body {
   background-color: #0D0055;
   font-family: 'Poppins', sans-serif;
-  flex-direction: row;
+  flex-direction: row !important; 
+  display: flex !important;
 }
 
