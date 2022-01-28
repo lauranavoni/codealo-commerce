@@ -15,8 +15,8 @@ const MenuItem = props =>{
         })
     }
     return(
-        <div className={styles.list}>
-            <div className={styles.listInfo}>
+        <div className={styles.products}>
+            <div className={styles.productsInfo}>
                 <h2>{props.title}</h2>
                 <p className={styles.description}>{props.productDescription}</p>
                 <p className={styles.price}>{`$${props.price.toFixed(2)}`}</p>

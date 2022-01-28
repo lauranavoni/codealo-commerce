@@ -1,12 +1,13 @@
-//import React, {useState} from 'react';
-//import styles from './App.module.css';
-//import CartProvider from './store/CartProvider';
+import React, {useState} from 'react';
+import styles from './App.module.css';
+import CartProvider from './store/CartProvider';
 import Header from'./components/Layout/Header';
-//import Cart from './components/Cart/Cart';
-import Products from "./Products";
+import Cart from './components/Cart/Cart';
+//import Products from "./Products";
 import Menu from './components/Menu/Menu';
 import Footer from'../src/components/Layout/Footer';
 
+/*
 export default function App() {
   return (
     
@@ -19,10 +20,10 @@ export default function App() {
    
    
   );
-}
+}*/
 
 
-/*
+
 function App() {
   const cart = [{
     id:'',
@@ -38,22 +39,19 @@ function App() {
   const hideCartHandler = ()=>{
     setCartVisible(false);
   }
-*
 
- {/*
-     <CartProvider className={styles.app}>
-      {cartVisible && <Cart onHideCart={hideCartHandler} cart={cart}/>}
-      <Header onShowCart={showCartHandler} onHideCart={hideCartHandler}/>
-      <Products/>
-      <Menu/>
-      </CartProvider>
+  return (
+    <><CartProvider className={styles.app}>
+      {cartVisible && <Cart onHideCart={hideCartHandler} cart={cart} />}
+      <Header onShowCart={showCartHandler} onHideCart={hideCartHandler} />
 
-      <Footer/>
+      <Menu></Menu>
+    </CartProvider><Footer /></>
 
- 
-  </>
-  ;
-};
-*/
+  );
+}
+
+export default App;
+
  
 

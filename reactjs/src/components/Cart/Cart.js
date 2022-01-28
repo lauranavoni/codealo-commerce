@@ -19,7 +19,7 @@ const Cart = props =>{
         {
             cartCtxt.items.map((item) => (
                 <CartItem 
-                    key={item.id} 
+                   
                     title={item.title} 
                     id={item.id} 
                     description={item.description} 

@@ -2,18 +2,20 @@ import React from 'react';
 import styles from './MenuList.module.css'; //ok
 import Card from '../../UI/Card';//ok
 import MenuItem from '../MenuItem/MenuItem';//ok
-import productos from'../../../ListaProductos';
+import Products from'../../../Products';
 
-const MenuList = props => {
-    const menuItems = productos.map(element=>
+const MenuList = () => {
+    const menuItems = Products.length > 0 &&
+        Products.map  (product=>
         <MenuItem
-            key ={element.id} 
-            id={element.id}
-            title={element.name}
-            productDescription={element.description}
-            price={element.price}
             
-            /* onAddCart={} */
+            id={product.id}
+            title={product.name}
+            img={product.image.url}
+            productDescription={product.description}
+            price={product.price}
+            
+            
         />)
     return(
         <section className={styles.list}>

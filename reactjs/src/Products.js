@@ -11,7 +11,7 @@ const Products = () => {
 
     useEffect (() => {
         axios
-            .get('https://codealo-commerce-cms.onrender.com/products')
+            .get("https://codealo-commerce-cms.onrender.com/products")
             .then (res => setProducts (res.data))
             .catch (error => console.log (error));
     

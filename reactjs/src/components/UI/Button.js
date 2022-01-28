@@ -9,9 +9,7 @@ const Button = props =>{
         onClick={props.onClick}
         >
             <p>{props.children}</p>
-           {/*  <div className={styles.cartAmount}>
-                {}
-            </div> */}
+
         </button>
     )
 }

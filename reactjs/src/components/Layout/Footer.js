@@ -7,14 +7,10 @@ const Container = styled.div`
   color:#FFFFFF;
   background-color: #3E24A7;
   padding: 10px;
- 
   font-size: 1.1rem;
-  font-family: 'Josefin Sans', sans-serif;
   font-family: 'Poppins', sans-serif;
   
 `;
-
-
 
 const Left = styled.div`
   flex: 1;
@@ -22,14 +18,11 @@ const Left = styled.div`
   flex-direction: column;
   padding: 20px;
 `;
-
 const Logo = styled.h1`
-
+font-family: 'Poppins', sans-serif;
 `;
-
 const Desc = styled.p`
   margin: 20px 0px;
-
 `;
 
 const SocialContainer = styled.div`
@@ -46,13 +39,11 @@ const SocialIcon = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 40px;
-
 `;
 
 const Center = styled.div`
   flex: 1;
   padding: 40px;
-
 `;
 
 const Title = styled.h3`
@@ -66,8 +57,6 @@ const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
-
-
 
 const Right = styled.div`
   flex: 1;
