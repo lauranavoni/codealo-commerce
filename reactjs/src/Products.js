@@ -19,7 +19,7 @@ const Products = () => {
 
 
     return (
-        <div style= {{display: 'flex',flexDirection :'row',  }} >
+        <div style= {{display: 'flex',flexWrap :'wrap', justifyContent:'center' }} >
             {products.length > 0 &&
             products.map  (product=>(
         <div className="product_title">
