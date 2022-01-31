@@ -3,7 +3,7 @@ import styles from './App.module.css';
 import CartProvider from './store/CartProvider';
 import Header from'./components/Layout/Header';
 import Cart from './components/Cart/Cart';
-//import Products from "./Products";
+import Products from "./Products";
 import Menu from './components/Menu/Menu';
 import Footer from'../src/components/Layout/Footer';
 
@@ -46,6 +46,7 @@ function App() {
       <Header onShowCart={showCartHandler} onHideCart={hideCartHandler} />
 
       <Menu></Menu>
+      <Products></Products>
     </CartProvider><Footer /></>
 
   );

@@ -6,12 +6,12 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const HeaderCartButton = props =>{
 
     const cartCtxt = useContext(CartContext);
-    const numberOfProducts = cartCtxt.items.reduce((currNum,item)=>{
-        return currNum+item.amount;
+    const numberOfProducts = cartCtxt.products.reduce((currNum,products)=>{
+        return currNum+products.amount;
     },0);
     const [buttonIsHighlighted,setbuttonIsHighlighted] = useState(false);
     useEffect(()=>{
-        if(cartCtxt.items.length===0){
+        if(cartCtxt.products.length===0){
             return
         }
         setbuttonIsHighlighted(true);
@@ -22,7 +22,7 @@ const HeaderCartButton = props =>{
         return ()=>{
             clearTimeout(timer);
         }
-    },[cartCtxt.items])
+    },[cartCtxt.products])
     const buttonClasses = `${styles.button} ${buttonIsHighlighted && styles.bump}`
     return(
         
