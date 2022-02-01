@@ -3,7 +3,7 @@ import CartContext from '../../store/CartContext';
 import styles from '../Layout/Header.module.css';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const HeaderCartButton = props =>{
+const CartButton = props =>{
 
     const cartCtxt = useContext(CartContext);
     const numberOfProducts = cartCtxt.products.reduce((currNum,products)=>{
@@ -39,4 +39,4 @@ const HeaderCartButton = props =>{
         </button>
     )
 }
-export default HeaderCartButton;
+export default CartButton;
