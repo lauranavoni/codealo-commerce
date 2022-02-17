@@ -6,7 +6,7 @@ const CartProducts = (props) => {
   return (
     <li className={classes['cart-products']} key={props.key}>
       <div>
-        <h2>{props.name}</h2>
+        <h2>{props.title}</h2>
         <div className={classes.products}>
           <span className={classes.price}>{price}</span>
           <span className={classes.amount}>x {props.amount}</span>

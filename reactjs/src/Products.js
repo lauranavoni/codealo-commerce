@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import './styles.css';
 
 
@@ -7,15 +7,25 @@ import './styles.css';
 const Products = () => {
 
 
-    const [products, setProducts]= useState ([]);
+    const [products, setProducts, addCart]= useState ([]);
 
-    useEffect (() => {
+  useEffect (() => {
         axios
             .get("https://codealo-commerce-cms.onrender.com/products")
             .then (res => setProducts (res.data))
             .catch (error => console.log (error));
     
     }, []);
+
+    /*
+    useEffect (() => {
+        axios.get ("https://codealo-commerce-cms.onrender.com/products")
+        .then (res=>{
+            setProducts(res.data)
+            cartCtxt.addProducts([res.data[0]])
+        })
+        .catch(error=>console.log(error));
+    }*/
 
 
     return (
@@ -42,7 +52,9 @@ const Products = () => {
          <div className="product_description"  >
         <h4>{product.description}</h4></div>
         <div className="container">
-        <p>${product.price}</p></div>
+        <p>${product.price}</p>
+        <button onClick={()=> addCart(product._id)}>Add to cart</button>
+        </div>
         </div>
         ))} 
          

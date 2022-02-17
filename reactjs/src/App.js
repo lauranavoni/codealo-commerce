@@ -7,21 +7,6 @@ import Products from "./Products";
 import Menu from './components/Menu/Menu';
 import Footer from'../src/components/Layout/Footer';
 
-/*
-export default function App() {
-  return (
-    
-    <div className="App">
-      <Header/>
-      <Menu/>
-      <Products></Products> 
-      <Footer></Footer></div>
-   
-   
-   
-  );
-}*/
-
 
 
 function App() {

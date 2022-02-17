@@ -9,17 +9,17 @@ const Cart = props =>{
     const cartCtxt = useContext(CartContext);
     const hasProducts = cartCtxt.products.length>0;
     const cartProductsAddHandler =(products) =>{
-        cartCtxt.addItem({...products,amount:1});
+        cartCtxt.addProducts({...products,amount:1});
     }
     const cartProductsRemoveHandler = (id) =>{
-        cartCtxt.removeItem(id)
+        cartCtxt.removeProducts(id)
     }
     const cartProducts = (
     <ul className={styles['cart-products']}>
         {
             cartCtxt.products.map((products) => (
                 <CartProducts 
-                   
+                    key={products.id}
                     title={products.title} 
                     id={products.id} 
                     description={products.description} 
