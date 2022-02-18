@@ -7,7 +7,7 @@ import './styles.css';
 const Products = () => {
 
 
-    const [products, setProducts, addCart]= useState ([]);
+    const [products, setProducts]= useState ([]);
 
   useEffect (() => {
         axios
@@ -53,7 +53,7 @@ const Products = () => {
         <h4>{product.description}</h4></div>
         <div className="container">
         <p>${product.price}</p>
-        <button onClick={()=> addCart(product._id)}>Add to cart</button>
+       
         </div>
         </div>
         ))} 

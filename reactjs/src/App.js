@@ -1,43 +1,26 @@
-import React, {useState} from 'react';
-import styles from './App.module.css';
-import CartProvider from './store/CartProvider';
-import Header from'./components/Layout/Header';
-import Cart from './components/Cart/Cart';
-import Products from "./Products";
-import Menu from './components/Menu/Menu';
-import Footer from'../src/components/Layout/Footer';
+//import Product from "./pages/Product";
+import Home from "./pages/Home";
+//import ProductList from "./pages/ProductList";
+//import Register from "./pages/Register";
+//import Login from "./pages/Login";
+//import Cart from "./pages/Cart";
 
 
 
-function App() {
-  const cart = [{
-    id:'',
-    title:'',
-    description :'',
-    amount:2,
-    price:1.84
-}]
-  const [cartVisible,setCartVisible] = useState(false);
-  const showCartHandler = ()=>{
-    setCartVisible(true);
-  } 
-  const hideCartHandler = ()=>{
-    setCartVisible(false);
-  }
-
-  return (
-    <><CartProvider className={styles.app}>
-      {cartVisible && <Cart onHideCart={hideCartHandler} cart={cart} />}
-      <Header onShowCart={showCartHandler} onHideCart={hideCartHandler} />
-
-      <Menu></Menu>
-      <Products></Products>
-    </CartProvider><Footer /></>
-
-  );
-}
+const App = () =>{
+  return <Home/>;
+};
 
 export default App;
 
- 
 
+
+
+ 
+//
+//import {
+//  BrowserRouter as Router,
+//  Switch,
+//  Route,
+//  Redirect,
+//} from "react-router-dom";//
