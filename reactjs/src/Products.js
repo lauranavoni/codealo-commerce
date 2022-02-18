@@ -17,17 +17,6 @@ const Products = () => {
     
     }, []);
 
-    /*
-    useEffect (() => {
-        axios.get ("https://codealo-commerce-cms.onrender.com/products")
-        .then (res=>{
-            setProducts(res.data)
-            cartCtxt.addProducts([res.data[0]])
-        })
-        .catch(error=>console.log(error));
-    }*/
-
-
     return (
         <div style= {{display: 'flex',flexWrap :'wrap', justifyContent:'center' }} >
             {products.length > 0 &&
@@ -49,6 +38,7 @@ const Products = () => {
                 },
             }}
          />
+
          <div className="product_description"  >
         <h4>{product.description}</h4></div>
         <div className="container">

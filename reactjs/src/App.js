@@ -1,26 +1,26 @@
-//import Product from "./pages/Product";
-import Home from "./pages/Home";
-//import ProductList from "./pages/ProductList";
-//import Register from "./pages/Register";
-//import Login from "./pages/Login";
-//import Cart from "./pages/Cart";
+import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom'
+import Header from './components/Header'
+import Section from './components/Section'
+import {DataProvider} from './components/Context'
 
 
 
-const App = () =>{
-  return <Home/>;
-};
+
+class App extends React.Component{
+  render(){
+    return(
+      <DataProvider>
+        <div className="app">
+          <Router>
+            <Header />
+        
+            <Section />
+          </Router>
+        </div>
+      </DataProvider>
+    );
+  }
+}
 
 export default App;
-
-
-
-
- 
-//
-//import {
-//  BrowserRouter as Router,
-//  Switch,
-//  Route,
-//  Redirect,
-//} from "react-router-dom";//

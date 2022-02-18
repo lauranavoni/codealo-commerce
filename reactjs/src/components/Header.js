@@ -1,78 +1,58 @@
-import React from 'react';
-import styles from './Header.module.css'; 
-import styled from "styled-components";
-
-import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
-const Container = styled.div`
-  height: 60px;
-`;
-
-const Wrapper = styled.div`
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-`;
-const Input = styled.input`
-  border: none;`;
-
-  const MenuItem = styled.div`
-  font-size: 14px;
-  cursor: pointer;
-  margin-left: 25px;
-`;
+import React, { Component } from 'react'
+import Menu from './svg/bars-solid.svg'//ok
+import Close from './svg/times-solid.svg'//ok
+import CartIcon from './svg/shopping-cart-solid.svg'//ok
+import {Link} from 'react-router-dom'
+//import '../components/Header.module.css'
+import {DataContext} from './Context'
+import './css/Headers.css'
 
 
 
-const Header = () =>{
-    const quantity = useSelector(state=>state.cart.quantity)
-    return(
-<React.Fragment>
-    <Container>
-      <Wrapper>
+export class Header extends Component {
+    static contextType = DataContext;
 
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
+    state = {
+        toggle: false
+    }
 
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <Link to="/cart">
-          <MenuItem>
-            <Badge badgeContent={quantity} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
-          </Link>
+    menuToggle = () =>{
+        this.setState({toggle: !this.state.toggle})
+    }
 
-      </Wrapper>
-    </Container>
-            <header 
-                className={styles.header}
-                
-            >
-                <h1>Ecommerce Codealo</h1>
 
-                
+    render() {
+        const {toggle} = this.state;
+        const {cart} = this.context;
+        return (
+            <header>
+                <div className="menu" onClick={this.menuToggle}>
+                    <img src={Menu} alt="" width="20"/>
+                </div>
+                <div className="logo">
+                    <h1><Link to="/">Ecommerce Codealo</Link></h1>
+                </div>
+                <nav>
+                    <ul className={toggle ? "toggle" : ""}>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/product">Product</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/login">Login / Register</Link></li>
+                        <li className="close" onClick={this.menuToggle}>
+                            <img src={Close} alt="" width="10"/>
+                        </li>
+                    </ul>
+                    <div className="nav-cart">
+                        <span>{cart.length}</span>
+                        <Link to="/cart">
+                            <img src={CartIcon} alt="" width="20"/>
+                        </Link>
+                    </div>
+                </nav>
             </header>
-
-        </React.Fragment>
-        
-    )
+        )
+    }
 }
 
-export default Header;
+export default Header
