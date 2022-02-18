@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Products from './Section/Products'
+import Products from '../Products'
 import Details from './Section/Details'
 import {Route} from "react-router-dom"
 import Cart from './Section/Cart'
@@ -7,6 +7,7 @@ import Payment from './Section/Payment'
 import About from './About'
 import Contact from './Contact'
 import Home from './Home'
+import Footer from './Footer'
 
 
 export class Section extends Component {
@@ -20,6 +21,7 @@ export class Section extends Component {
                     <Route path="/payment" component={Payment} exact />
                     <Route path="/about"component={About} exact/>
                     <Route path="/contact"component={Contact} exact/>
+                    <Route path="/footer"component={Footer} exact/>
 
             </section>
         )

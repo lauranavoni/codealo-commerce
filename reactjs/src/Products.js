@@ -39,8 +39,6 @@ const Products = () => {
             }}
          />
 
-         <div className="product_description"  >
-        <h4>{product.description}</h4></div>
         <div className="container">
         <p>${product.price}</p>
        

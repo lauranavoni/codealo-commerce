@@ -13,16 +13,16 @@ const Home = () => {
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" >
-                      <img src="/assets/sliceone.png" alt="two"class=" d-inline-flex p-2  rounded"/>  
+                      <img src="/assets/sliceone.png" alt="two"class=" mx-auto d-block  rounded position-relative"/>  
     </div>
                         <div class="carousel-item">
-                            <img src="/assets/slice2.png" alt="two"class="d-block rounded "/>
+                            <img src="/assets/slice2.png" alt="two"class="mx-auto d-block rounded position-relative "/>
     </div>
                             <div class="carousel-item">
-                                <img src="/assets/slice3.png"  alt="three" class="d-block rounded "/>
+                                <img src="/assets/slice3.png"  alt="three" class="mx-auto d-block rounded position-relative "/>
     </div>
                             <div class="carousel-item">
-                                <img src="/assets/slicefour.png"  alt="four" class="d-block  rounded"/>
+                                <img src="/assets/slicefour.png"  alt="four" class="mx-auto d-block rounded position-relative"/>
     </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

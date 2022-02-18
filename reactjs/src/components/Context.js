@@ -5,13 +5,10 @@ export const DataContext = React.createContext();
 export class DataProvider extends Component {
 
     state = {
-        products: [
-            {
-             }
-        ],
+        products: [],
+        quantity:0,
         cart: [],
         total: 0
-        
     };
 
     addCart = (id) =>{
