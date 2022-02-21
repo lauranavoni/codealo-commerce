@@ -3,7 +3,7 @@ section .cart{
     border: 1px solid #FFFFFF;
 }
 .amount span{
-    color: #2B262D;
+    color: #FFFFFF;
     padding: 0 20px;
 }
 .amount .count{

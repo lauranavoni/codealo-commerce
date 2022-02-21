@@ -3,7 +3,6 @@ import Menu from './svg/bars-solid.svg'//ok
 import Close from './svg/times-solid.svg'//ok
 import CartIcon from './svg/shopping-cart-solid.svg'//ok
 import {Link} from 'react-router-dom'
-//import '../components/Header.module.css'
 import {DataContext} from './Context'
 import './css/Headers.css'
 
