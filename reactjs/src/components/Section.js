@@ -8,6 +8,7 @@ import About from './About'
 import Contact from './Contact'
 import Home from './Home'
 import Footer from './Footer'
+import Login from './Login'
 
 
 export class Section extends Component {
@@ -21,6 +22,7 @@ export class Section extends Component {
                     <Route path="/payment" component={Payment} exact />
                     <Route path="/about"component={About} exact/>
                     <Route path="/contact"component={Contact} exact/>
+                    <Route path="/login"component={Login} exact/>
                     <Route path="/footer"component={Footer} exact/>
 
             </section>

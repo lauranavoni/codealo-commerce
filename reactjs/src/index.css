@@ -10,11 +10,14 @@ html {
 }
 
 body {
- 
-  background-color: #0D0055;
+  font-family: 'Poppins', sans-serif;
+  background-color: #3E24A7;
+
 }
 
 section{
-  box-shadow: 0 0 5px #ccc;
+  background-color:#11142D; ;
   padding: 15px 10px;
+  font-family: 'Poppins', sans-serif;
+
 }
