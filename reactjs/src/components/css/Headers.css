@@ -9,12 +9,19 @@
     padding: 10px;
     font-size: 1.1rem;
     font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    line-height: 60px;
   }
 header .logo a{
     text-decoration: none;
     text-transform: uppercase;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
 }
 header nav{
     display: flex;

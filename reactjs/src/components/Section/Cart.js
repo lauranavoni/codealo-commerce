@@ -1,53 +1,81 @@
-import React, { Component } from 'react'
-import {DataContext} from '../Context'
-import {Link} from 'react-router-dom'
-import '../css/Details.css'
-import '../css/Cart.css'
+import React from "react";
+import {useSelector} from 'react-redux'
+import { addCart, delCart } from '../redux/action/index'
+import { NavLink } from "react-router-dom";
+import {  useDispatch} from "react-redux";
 
-export class Cart extends Component {
-    static contextType = DataContext;
 
-    componentDidMount(){
-        this.context.getTotal();
+const Cart = () => {
+    const state = useSelector((state)=> state.handleCart)
+    const dispatch = useDispatch()
+
+    const handleAdd = (item) => {
+        dispatch(addCart(item))
     }
-    
-    render() {
-        const {cart,increase,reduction,removeProduct,total} = this.context;
-        if(cart.length === 0){
-            return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
-        }else{
-            return (
-                <>
-                    {
-                        cart.map(item =>(
-                            <div className="details cart" key={item._id}>
-                                <img src={item.src} alt=""/>
-                                <div className="box">
-                                    <div className="row">
-                                        <h2>{item.title}</h2>
-                                        <span>${item.price * item.count}</span>
-                                    </div>
+    const handleDel = (item) => {
+        dispatch(delCart(item))
+    }
 
-                                    <p>{item.description}</p>
-                                    <p>{item.content}</p>
-                                    <div className="amount">
-                                        <button className="count" onClick={() => reduction(item._id)}> - </button>
-                                        <span>{item.count}</span>
-                                        <button className="count" onClick={() => increase(item._id)}> + </button>
-                                    </div>
-                                </div>
-                                <div className="delete" onClick={() => removeProduct(item._id)}>X</div>
-                            </div>
-                        ))
-                    }
-                    <div className="total">
-                        <Link to="/payment">Payment</Link>
-                        <h3>Total: ${total}</h3>
+    const emptyCart = () => {
+        return(
+            <div className="px-4 my-5 bg-light rounded-3 py-5">
+                <div className="container py-4">
+                    <div className="row">
+                        <h3>Your Cart is Empty</h3>
                     </div>
-                </>
-                )
-            }
-        }
+                </div>
+            </div>
+        )
+    }
+    const cartItems = (product) => {
+        return(
+            <>
+                <div className="px-4 my-5 bg-light rounded-3 py-5">
+                <div className="container py-4">
+                    <div className="row justify-content-center">
+                        <div className="col-md-4">
+                            <img alt= {product.img}src={`https://codealo-commerce-cms.onrender.com${product.image.url} `}  height="200px" width="180px" />
+                        </div>
+                        <div className="col-md-4">
+                            <h3>{product.title}</h3>
+                            <p className="lead fw-bold">
+                                {product.quantity} X ${product.price} = ${product.quantity * product.price}
+                            </p>
+                            <button className="btn btn-outline-dark me-4" onClick={()=>handleDel(product)}>
+                                ➖
+                            </button>
+                            <button className="btn btn-outline-dark" onClick={()=> handleAdd(product)}>
+                                ➕
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </>
+        )
+
+    }
+    const buttons = () => {
+        return(
+            <>
+                <div className="container">
+                    <div className="row">
+                        <NavLink to="/payment" className="btn btn-outline-dark mb-5 w-25 mx-auto">
+                         Payment
+                        </NavLink>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
+    return (
+        <div>
+            {state.length === 0 && emptyCart()}
+            {state.length !== 0 && state.map(cartItems)}
+            {state.length !== 0 && buttons()}
+        </div>
+    );
 }
 
-export default Cart
+export default Cart;

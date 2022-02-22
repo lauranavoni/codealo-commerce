@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useEffect, useState } from "react";
 import './styles.css';
-
+import { NavLink } from "react-router-dom";
 
 
 const Products = () => {
@@ -33,15 +33,16 @@ const Products = () => {
                     cursor: 'pointer',
                     color: '#0D0055',
                     background: '#3E24A7',
-                    
-                
                 },
             }}
          />
 
         <div className="container">
         <p>${product.price}</p>
-       
+        <NavLink
+         to={`/products/${product.slug}`}
+        className="btn btn-outline-dark " style= {{ justifyContent:'center',color: '#ffffff',background: '#3E24A7',fontFamily: 'Poppins', }}
+        > Add to Cart </NavLink>
         </div>
         </div>
         ))} 

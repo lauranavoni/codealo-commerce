@@ -3,13 +3,13 @@ import Menu from './svg/bars-solid.svg'//ok
 import Close from './svg/times-solid.svg'//ok
 import CartIcon from './svg/shopping-cart-solid.svg'//ok
 import {Link} from 'react-router-dom'
-import {DataContext} from './Context'
+import {CartContext} from '../store/CartContext'
 import './css/Headers.css'
 
 
 
 export class Header extends Component {
-    static contextType = DataContext;
+    static contextType = CartContext;
 
     state = {
         toggle: false

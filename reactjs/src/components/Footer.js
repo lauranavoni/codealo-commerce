@@ -77,9 +77,11 @@ const Footer = () => {
       <Left>
         <Logo>Codealo</Logo>
         <Desc>
-        Las principales empresas eligen a Codealo Business para desarrollar sus habilidades profesionales más demandadas.
+        Las principales empresas eligen a Codealo para desarrollar sus habilidades profesionales más demandadas.
         </Desc>
-
+        <div>
+        Created by <a href="https://github.com/lauranavoni">Laura Navoni</a>
+      </div>
       </Left>
       <Center>
         <Title>Links</Title>
@@ -89,8 +91,10 @@ const Footer = () => {
         <a href="https://instagram.com/codealo"><SocialIcon color="E4405F">
             <Instagram />
           </SocialIcon></a>
+
        
        </SocialContainer>
+  
         </List>
       </Center>
       <Right>

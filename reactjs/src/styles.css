@@ -4,7 +4,7 @@
     background-color: #11142D;
     margin: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     border: 1px solid white;
     padding: 20px;
@@ -12,7 +12,7 @@
     overflow: hidden;
     border-radius: 10;
    
-   column-gap:'5px';
+    column-gap:'5px';
   }
 
   .product_title{
@@ -23,14 +23,14 @@
     border: 1px solid white;
     margin: 10px;
     padding: 20px;
-    justify-content: center;
+    justify-content: right;
     width: 300px;
     border-radius: 10px;
   }
 
 
   .product img{
-   
+     justify-content: right; 
      object-fit: contain;
       margin-bottom: 15px;
       font-family: 'Poppins', sans-serif;
@@ -49,6 +49,8 @@
   .container{
     margin: 10px;
     columns:3;
+    justify-content: right;
+
    
   }
   .container:hover{
