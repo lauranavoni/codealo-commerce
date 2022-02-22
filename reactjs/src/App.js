@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import Header from './components/Header'
 import Section from './components/Section'
-import {DataProvider} from './components/Context'
+import {CartProvider} from './store/CartProvider'
 import Footer from './components/Footer';
 
 
@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 class App extends React.Component{
   render(){
     return(
-      <DataProvider>
+      <CartProvider>
         <div className="app">
           <Router>
             <Header />
@@ -20,7 +20,7 @@ class App extends React.Component{
             <Footer/>
           </Router>
         </div>
-      </DataProvider>
+      </CartProvider>
     );
   }
 }

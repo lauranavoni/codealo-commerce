@@ -1,31 +1,32 @@
 import React,{useContext} from 'react';
 import styles from '../Cart/Cart.modules.css';
 import Modal from '../UI/Modal'
-import CartItem from '../CartItem/CartItem';
+import CartProducts from '../Section/CartProducts';
 import CartContext from '../../store/CartContext';
+
 
 
 const Cart = props =>{
     const cartCtxt = useContext(CartContext);
-    const hasItems = cartCtxt.items.length>0;
-    const cartItemAddHandler =(item) =>{
-        cartCtxt.addItem({...item,amount:1});
+    const hasProducts = cartCtxt.products.length>0;
+    const cartProductsAddHandler =(products) =>{
+        cartCtxt.addProducts({...products,amount:1});
     }
-    const cartItemRemoveHandler = (id) =>{
-        cartCtxt.removeItem(id)
+    const cartProductsRemoveHandler = (id) =>{
+        cartCtxt.removeProducts(id)
     }
-    const cartItems = (
-    <ul className={styles['cart-items']}>
+    const cartProducts = (
+    <ul className={styles['cart-products']}>
         {
-            cartCtxt.items.map((item) => (
-                <CartItem 
-                    key={item.id} 
-                    name={item.name} 
-                    id={item.id} 
-                    amount={item.amount} 
-                    price={item.price}
-                    onRemove={cartItemRemoveHandler.bind(null,item.id)}
-                    onAdd={cartItemAddHandler.bind(null,item)}
+            cartCtxt.products.map((products) => (
+                <CartProducts 
+                    key={products.id} 
+                    name={products.name} 
+                    id={products.id} 
+                    amount={products.amount} 
+                    price={products.price}
+                    onRemove={cartProductsRemoveHandler.bind(null,products.id)}
+                    onAdd={cartProductsAddHandler.bind(null,products)}
                 />
             )
             )
@@ -35,7 +36,7 @@ const Cart = props =>{
 
     return (
         <Modal onClick={props.onHideCart}>
-            {cartItems}
+            {cartProducts}
             <div className={styles.total}>
                 <span>
                     Total Amount
@@ -46,7 +47,7 @@ const Cart = props =>{
             </div >
             <div className={styles.actions}>
                 <button className={styles["button--alt"]}onClick={props.onHideCart}>Close</button>
-                {hasItems && <button className={styles.button}>Buy</button>}
+                {hasProducts && <button className={styles.button}>Buy</button>}
             </div>
         </Modal>
     )

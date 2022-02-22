@@ -1,13 +1,14 @@
 import classes from '../css/CartItem.css';
 
-const CartItem = (props) => {
+//add btn to remove and add products
+const CartProducts = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
   return (
-    <li className={classes['cart-item']} key={props.key}>
+    <li className={classes['cart-products']} key={props.key}>
       <div>
         <h2>{props.name}</h2>
-        <div className={classes.summary}>
+        <div>
           <span className={classes.price}>{price}</span>
           <span className={classes.amount}>x {props.amount}</span>
         </div>
@@ -20,4 +21,4 @@ const CartItem = (props) => {
   );
 };
 
-export default CartItem;
+export default CartProducts;

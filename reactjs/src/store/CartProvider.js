@@ -2,56 +2,56 @@ import React,{useReducer} from 'react';
 import CartContext from './CartContext';
 
 const defaultCartState = {
-    items:[],
+    products:[],
     totalAmount: 0
 }
 const cartReducer = (state, action) =>{
     if(action.type === 'ADD'){
 
-        const existingCartItemIndex = state.items.findIndex(item=>item.id===action.value.id);
-        const existingCartItem = state.items[existingCartItemIndex];
-        let updatedItems;
-        if(existingCartItem){
-            const updatedItem = {
-                ...existingCartItem,
-                amount: existingCartItem.amount+action.value.amount
+        const existingCartProductsIndex = state.products.findIndex(products=>products.id===action.value.id);
+        const existingCartProducts = state.products[existingCartProductsIndex];
+        let updatedProducts;
+        if(existingCartProducts){
+            const updatedProducts = {
+                ...existingCartProducts,
+                amount: existingCartProducts.amount+action.value.amount
             }
-            updatedItems = [...state.items];
-            updatedItems[existingCartItemIndex]= updatedItem;
+            updatedProducts = [...state.products];
+            updatedProducts[existingCartProductsIndex]= updatedProducts;
         }
         else{
-            updatedItems = state.items.concat(action.value)
+            updatedProducts = state.products.concat(action.value)
         }
         const updatedAmount = state.totalAmount+ (action.value.price*action.value.amount);
         return {
-            items: updatedItems,
+            items: updatedProducts,
             totalAmount:updatedAmount
         }
     }
     if(action.type === 'REMOVE'){
-        const existingCartItemIndex = state.items.findIndex(item=>item.id===action.value);
+        const existingCartProductsIndex = state.products.findIndex(products=>products.id===action.value);
         
-        const existingCartItem = state.items[existingCartItemIndex];
-        const updatedAmount = state.totalAmount- existingCartItem.price;
-        let updatedItems;
-        if(existingCartItem.amount=== 1){
+        const existingCartProducts = state.products[existingCartProductsIndex];
+        const updatedAmount = state.totalAmount- existingCartProducts.price;
+        let updatedProducts;
+        if(existingCartProducts.amount=== 1){
 
-            updatedItems = state.items.filter(item=> item.id !== action.value);
+            updatedProducts = state.products.filter(products=> products.id !== action.value);
         }
         else{
 
-                 const updatedItem = {
-                    ...existingCartItem,
-                    amount: existingCartItem.amount-1
+                 const updatedProducts = {
+                    ...existingCartProducts,
+                    amount: existingCartProducts.amount-1
                 }
-                updatedItems = [...state.items];
-                updatedItems[existingCartItemIndex]= updatedItem;
+                updatedProducts = [...state.products];
+                updatedProducts[existingCartProductsIndex]= updatedProducts;
             }
            
     
         
         return {
-            items: updatedItems,
+            products: updatedProducts,
             totalAmount:updatedAmount
         }
     }
@@ -59,13 +59,13 @@ const cartReducer = (state, action) =>{
 }
 const CartProvider = props => {
     const [cartState, dispatchCart] = useReducer(cartReducer,defaultCartState);
-    const addItemHandler = item =>{
+    const addProductsHandler = products =>{
         dispatchCart({
             type:'ADD',
-            value: item
+            value: products
         })
     }
-    const removeItemHandler = id =>{
+    const removeProductsHandler = id =>{
         dispatchCart({
             type:'REMOVE',
             value: id
@@ -73,10 +73,10 @@ const CartProvider = props => {
     }
 
     const cartContext = {
-        items: cartState.items,
+        products: cartState.products,
         totalAmount: cartState.totalAmount,
-        addItem: addItemHandler,
-        removeItem: removeItemHandler
+        addProducts: addProductsHandler,
+        removeProducts: removeProductsHandler
     }
     
     return (
